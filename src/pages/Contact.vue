@@ -110,6 +110,7 @@
                             v-model="form.email"
                             required
                             id="email"
+                            :class="{ 'boorder-error': errorEmail }"
                         />
                         <span v-if="errorEmail" class="text-danger py-1"> {{ errorEmail }}</span>
                     </div>
@@ -151,8 +152,21 @@
 </template>
 
 <style scoped>
+    input:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    textarea:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
     .custom-max-width {
         max-width: 620px;
+    }
+
+    .boorder-error {
+        border-color: #EC1D24;
     }
 
     .custom-text-label {
