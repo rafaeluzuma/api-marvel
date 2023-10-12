@@ -96,7 +96,7 @@
             <h3 class="py-3">Quadrinhos</h3>
         
             <div class="pb-3">
-                <div class="d-flex flex-wrap gap-3 gap-lg-4">
+                <div class="d-flex flex-wrap gap-3 gap-lg-4 justify-content-between">
                     <div v-for="(comic, index) in Comics" :key="index">
                         <img class="" :src="`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`" alt="" width="162" height="245">
                         <p class="text-center truncate-text">{{ comic.title }}</p>

@@ -16,8 +16,10 @@
           return this.$route.name === routeName;
         },
         handleToggler(){
-          const myCollapse = document.getElementById('navbarSupportedContent')
-          new bootstrap.Collapse(myCollapse || '')
+          if (window.innerWidth < 992) {
+            const myCollapse = document.getElementById('navbarSupportedContent')
+            new bootstrap.Collapse(myCollapse || '')
+          }
         }
       },
   });
@@ -34,7 +36,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" @click="handleToggler" >
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 gap-3">
           <li class="nav-item">
             <router-link 
