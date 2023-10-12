@@ -56,7 +56,7 @@
             <div class="py-1 py-lg-3">
                 <div class="d-flex flex-wrap justify-content-between justify-content-md-start gap-1 gap-md-4 mx-auto">
                     <div class="d-flex flex-column" v-for="(character, index) in characters" :key="index">
-                        <img class="size-image" :src="`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`" alt="" width="160" height="183" />
+                        <img class="size-image" :src="`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`" alt="" width="165" height="183" />
                         <a 
                             class="text-center truncate-text pt-3 text-uppercase text-decoration-underline text-black fw-bold" 
                             data-bs-toggle="collapse" 
