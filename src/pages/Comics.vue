@@ -46,11 +46,11 @@
 </script>
 
 <template>
-    <div class="container-xxl h-100">
+    <div class="container-xxl h-100 py-2 py-lg-0">
         <div v-if="!loading">
             <Breadcrumb :items="breadcrumbs" />
 
-            <div class="py-1 py-lg-3">
+            <div class="pt-2 pb-4 pt-lg-3">
                 <div class="d-flex flex-wrap gap-4 justify-content-between justify-content-lg-start">
                     <div class="flex-item" v-for="(comic, index) in comics" :key="index">
                         <img class="size-image" :src="`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`" alt="" width="162" height="245">

@@ -52,7 +52,7 @@
             <router-link 
               to="/characters" 
               class="text-decoration-none text-white text-uppercase fw-normal fs-5 position-relative"
-              :class="{ active: isActive('characters') }"
+              :class="{ active: isActive('characters') || isActive('charactersDetails') }"
             >
               Personagens
             </router-link>

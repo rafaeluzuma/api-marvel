@@ -47,14 +47,14 @@
 </script>
 
 <template>
-    <div class="container-xxl h-100 px-3 px-lg-2">
+    <div class="container-xxl h-100 px-3 px-lg-2 py-2 py-lg-0">
         <div v-if="!loading">
             <Breadcrumb :items="breadcrumbs" />
 
             <div class="py-0">
                 <div class="d-flex flex-wrap gap-1">
                     <div class="row">
-                        <div class="d-flex flex-column gap-2 flex-lg-row col-md-6 px-lg-3 py-lg-0 px-2 my-3" v-for="(event, index) in events" :key="index">
+                        <div class="d-flex flex-column gap-2 flex-lg-row col-md-6 px-lg-3 py-lg-0 px-2 my-lg-3" v-for="(event, index) in events" :key="index">
                             <img class="d-flex size-image w-auto" :src="`${event?.thumbnail?.path}.${event?.thumbnail?.extension}`" alt="" height="300">
                             <div class="d-flex flex-column px-lg-3 py-3 py-lg-0">
                                 <h3 class="text-start">{{ event.title }}</h3>

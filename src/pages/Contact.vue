@@ -36,6 +36,7 @@
                 this.form.name = ''
                 this.form.message = ''
             },
+            
         },
         computed: {
             breadcrumbs() {
@@ -45,16 +46,31 @@
             },
 
             disabledBtn() {
-                return (this.form.name.length > 0) && (this.form.message.length > 0) && (this.form.email.length > 0) && (this.form.phone.length > 0)
-            }
-        },
-        watch: {
-            'form.phone': function(newD: any) {
-                if (newD.length > 0 && newD.length < 16) {
+                return (this.form.name.length > 0) && 
+                    (this.form.message.length > 0) && 
+                    (this.form.email.length > 0) && 
+                    (this.form.phone.length > 0) && 
+                    (this.errorPhone == '') && 
+                    (this.errorEmail == '')
+            },
+
+            onInputBlurPhone() {
+                if (this.form.phone.length > 0 && this.form.phone.length < 16) {
                     this.errorPhone = 'Telefone inválido';
-                } else {
-                    this.errorPhone = ''
+                    return
                 }
+
+                this.errorPhone = '';
+            },
+
+            onInputBlurEmail() {
+                const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!pattern.test(this.form.email)) {
+                    this.errorEmail = 'E-mail inválido'
+                    return
+                }
+
+                this.errorEmail = ''
             }
         }
     });
@@ -93,7 +109,9 @@
                             v-model="form.email"
                             required
                             id="email"
+                            @blur="onInputBlurEmail"
                         />
+                        <span v-if="errorEmail" class="text-danger py-1"> {{ errorEmail }}</span>
                     </div>
                     <div class="py-2">
                         <label class="custom-text-label" for="phone">Telefone</label>
@@ -106,6 +124,7 @@
                             autocomplete="off"
                             required
                             id="phone"
+                            @blur="onInputBlurPhone"
                         />
                         <span v-if="errorPhone" class="text-danger py-1"> {{ errorPhone }}</span>
                     </div>

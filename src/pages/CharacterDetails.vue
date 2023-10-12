@@ -82,7 +82,7 @@
 
 <template>
     <div v-if="!loading">
-        <div class="container-xxl px-3">
+        <div class="container-xxl px-3 py-2 py-lg-0">
             <Breadcrumb :items="breadcrumbs" />
 
             <div class="d-flex flex-column flex-lg-row py-0 gap-lg-5 gap-3 py-1 py-lg-3">
@@ -125,11 +125,6 @@
         .mxw-300{
             max-width: 300px;
         }
-
-        /* .size-image {
-            width: 330px;
-            height: 324px;
-        } */
 
         .size-image-comics {
             width: 200px;

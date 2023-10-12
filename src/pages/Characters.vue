@@ -49,11 +49,11 @@
 </script>
 
 <template>
-    <div class="container-xxl h-100">
+    <div class="container-xxl h-100 py-lg-0 py-3">
         <div v-if="!loading">
-            <Breadcrumb :items="breadcrumbs" />
+            <Breadcrumb :items="breadcrumbs"/>
 
-            <div class="py-1 py-lg-3">
+            <div class="pt-2 py-lg-3 pb-4">
                 <div class="d-flex flex-wrap justify-content-between justify-content-md-start gap-1 gap-md-4 mx-auto">
                     <div class="d-flex flex-column" v-for="(character, index) in characters" :key="index">
                         <img class="size-image" :src="`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`" alt="" width="165" height="183" />
