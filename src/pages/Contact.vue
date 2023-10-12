@@ -36,6 +36,25 @@
                 this.form.name = ''
                 this.form.message = ''
             },
+
+            onInputBlurPhone(): void | undefined {
+                if (this.form.phone.length > 0 && this.form.phone.length < 16) {
+                    this.errorPhone = 'Telefone inválido';
+                    return
+                }
+
+                this.errorPhone = '';
+            },
+
+            onInputBlurEmail() {
+                const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!pattern.test(this.form.email)) {
+                    return this.errorEmail = 'E-mail inválido'
+                    
+                }
+
+                this.errorEmail = ''
+            }
             
         },
         computed: {
@@ -52,25 +71,6 @@
                     (this.form.phone.length > 0) && 
                     (this.errorPhone == '') && 
                     (this.errorEmail == '')
-            },
-
-            onInputBlurPhone() {
-                if (this.form.phone.length > 0 && this.form.phone.length < 16) {
-                    this.errorPhone = 'Telefone inválido';
-                    return
-                }
-
-                this.errorPhone = '';
-            },
-
-            onInputBlurEmail() {
-                const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-                if (!pattern.test(this.form.email)) {
-                    this.errorEmail = 'E-mail inválido'
-                    return
-                }
-
-                this.errorEmail = ''
             }
         }
     });
@@ -100,7 +100,8 @@
                     </div>
                     <div class="py-2">
                         <label class="custom-text-label" for="email">Email</label>
-                        <input 
+                        <input
+                            @blur="onInputBlurEmail" 
                             type="email" 
                             class="form-control" 
                             aria-label="Dollar amount (with dot and two decimal places)"
@@ -109,13 +110,13 @@
                             v-model="form.email"
                             required
                             id="email"
-                            @blur="onInputBlurEmail"
                         />
                         <span v-if="errorEmail" class="text-danger py-1"> {{ errorEmail }}</span>
                     </div>
                     <div class="py-2">
                         <label class="custom-text-label" for="phone">Telefone</label>
-                        <input 
+                        <input
+                            @blur="onInputBlurPhone" 
                             type="text" 
                             class="form-control" 
                             aria-label="Dollar amount (with dot and two decimal places)"
@@ -124,7 +125,6 @@
                             autocomplete="off"
                             required
                             id="phone"
-                            @blur="onInputBlurPhone"
                         />
                         <span v-if="errorPhone" class="text-danger py-1"> {{ errorPhone }}</span>
                     </div>
