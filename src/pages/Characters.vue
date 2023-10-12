@@ -98,4 +98,11 @@
             height: 183px;
         }
     }
+
+    @media (min-width: 414px) and (max-width: 575px) {
+        .size-image {
+            width: 185px;
+            height: 183px;
+        }
+    }
 </style>

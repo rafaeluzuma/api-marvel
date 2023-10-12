@@ -98,7 +98,7 @@
             <div class="pb-3">
                 <div class="d-flex flex-wrap gap-3 gap-lg-4 justify-content-between">
                     <div v-for="(comic, index) in Comics" :key="index">
-                        <img class="" :src="`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`" alt="" width="162" height="245">
+                        <img class="size-image" :src="`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`" alt="" width="162" height="245">
                         <p class="text-center truncate-text">{{ comic.title }}</p>
                         <span>Paginas: {{ comic.pageCount }}</span>
                     </div>
@@ -126,14 +126,21 @@
             max-width: 300px;
         }
 
-        .size-image {
+        /* .size-image {
             width: 330px;
             height: 324px;
-        }
+        } */
 
         .size-image-comics {
             width: 200px;
             height: 318px;
+        }
+    }
+
+    @media (min-width: 414px) and (max-width: 575px) {
+        .size-image {
+            width: 180px;
+            height: 183px;
         }
     }
 </style>
