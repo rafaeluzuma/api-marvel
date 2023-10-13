@@ -140,7 +140,7 @@
                         <textarea 
                             type="text" 
                             class="form-control" 
-                            placeholder=""
+                            placeholder="Mensagem de contato para marvel"
                             rows="4"
                             v-model="form.message" 
                             id="message"
