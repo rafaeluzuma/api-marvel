@@ -38,7 +38,7 @@
             },
 
             onInputBlurPhone(): void | undefined {
-                if (this.form.phone.length > 0 && this.form.phone.length < 16) {
+                if (this.form.phone.length > 0 && this.form.phone.length < 15) {
                     this.errorPhone = 'Telefone inválido';
                     return
                     
