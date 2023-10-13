@@ -55,7 +55,7 @@
 
             <div class="pt-2 py-lg-3 pb-4">
                 <div class="d-flex flex-wrap justify-content-between justify-content-md-start gap-1 gap-md-4 mx-auto">
-                    <div class="d-flex flex-column" v-for="(character, index) in characters" :key="index" @click="charactec(character.id)">
+                    <div class="d-flex flex-column cursor-pointer" v-for="(character, index) in characters" :key="index" @click="charactec(character.id)">
                         <img class="size-image" :src="`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`" alt="" width="165" height="183" />
                         <a 
                             class="text-center truncate-text pt-3 text-uppercase text-decoration-underline text-black fw-bold" 
@@ -80,6 +80,9 @@
 </template>
 
 <style scoped>
+    .cursor-pointer {
+        cursor: pointer;
+    }
     .truncate-text {
         white-space: nowrap;
         overflow: hidden;
