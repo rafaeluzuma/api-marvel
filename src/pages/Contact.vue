@@ -126,7 +126,7 @@
                             class="form-control" 
                             aria-label="Dollar amount (with dot and two decimal places)"
                             placeholder="Ex.: (99) 9 9999-9999"
-                            v-mask="'(##) #####0-####'" v-model="form.phone"
+                            v-mask="'(##) #####-####'" v-model="form.phone"
                             autocomplete="off"
                             required
                             id="phone"
