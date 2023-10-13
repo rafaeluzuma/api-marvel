@@ -32,11 +32,18 @@
         <Logo />
       </router-link>
       
-      <button class="navbar-toggler" type="button" @click="handleToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        @click="handleToggler" 
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" @click="handleToggler" >
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" @click="handleToggler">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 gap-3">
           <li class="nav-item">
             <router-link 

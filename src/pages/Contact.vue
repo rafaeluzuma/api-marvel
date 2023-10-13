@@ -41,6 +41,7 @@
                 if (this.form.phone.length > 0 && this.form.phone.length < 16) {
                     this.errorPhone = 'Telefone inválido';
                     return
+                    
                 }
 
                 this.errorPhone = '';
@@ -48,9 +49,9 @@
 
             onInputBlurEmail() {
                 const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-                if (!pattern.test(this.form.email)) {
-                    return this.errorEmail = 'E-mail inválido'
-                    
+                if (this.form.email.length > 0 && !pattern.test(this.form.email)) {
+                    this.errorEmail = 'E-mail inválido'
+                    return
                 }
 
                 this.errorEmail = ''
@@ -80,7 +81,10 @@
     <div class="container-xxl">
         <Breadcrumb :items="breadcrumbs" />
 
-        <Modal title="Message sent successfully!" message="Thank you, we'll reach you as soon as possible"/>
+        <Modal 
+            title="Message sent successfully!" 
+            message="Thank you, we'll reach you as soon as possible"
+        />
 
         <div>
             <form @submit.prevent="handleForm">
@@ -110,7 +114,7 @@
                             v-model="form.email"
                             required
                             id="email"
-                            :class="{ 'boorder-error': errorEmail }"
+                            :class="{ 'border-error': errorEmail }"
                         />
                         <span v-if="errorEmail" class="text-danger py-1"> {{ errorEmail }}</span>
                     </div>
@@ -126,6 +130,7 @@
                             autocomplete="off"
                             required
                             id="phone"
+                            :class="{ 'border-error': errorPhone }"
                         />
                         <span v-if="errorPhone" class="text-danger py-1"> {{ errorPhone }}</span>
                     </div>
@@ -143,7 +148,15 @@
                         ></textarea>
                     </div>
 
-                    <button type="submit" id="btn-send-contact" :class="disabledBtn ? 'btn-danger': 'btn-secondary'" :disabled="!disabledBtn" class="btn custom-btn custom-btn-text">Enviar</button>
+                    <button 
+                        type="submit" 
+                        id="btn-send-contact" 
+                        :class="disabledBtn ? 'btn-danger': 'btn-secondary'" 
+                        :disabled="!disabledBtn" 
+                        class="btn custom-btn custom-btn-text"
+                    >
+                        Enviar
+                    </button>
                 </div>
             </form>
         </div>
@@ -165,7 +178,7 @@
         max-width: 620px;
     }
 
-    .boorder-error {
+    .border-error {
         border-color: #EC1D24;
     }
 
