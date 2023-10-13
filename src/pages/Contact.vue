@@ -78,7 +78,7 @@
 </script>
 
 <template>
-    <div class="container-xxl">
+    <div class="container-xxl px-lg-2">
         <Breadcrumb :items="breadcrumbs" />
 
         <Modal 
@@ -153,7 +153,7 @@
                         id="btn-send-contact" 
                         :class="disabledBtn ? 'btn-danger': 'btn-secondary'" 
                         :disabled="!disabledBtn" 
-                        class="btn custom-btn custom-btn-text"
+                        class="btn custom-btn custom-btn-text p-2"
                     >
                         Enviar
                     </button>

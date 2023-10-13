@@ -3,7 +3,7 @@ import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
-  <main class="container-fluid px-0 d-flex flex-column vh-100 overflow-overlay">
+  <main class="container-fluid px-0 d-flex flex-column vh-100">
     <Navbar />
     
     <router-view></router-view>
@@ -11,7 +11,9 @@ import Navbar from './components/Navbar.vue';
 </template>
 
 <style scoped>
-  main {
-    overflow: overlay; 
+  @media (min-width: 992px) {
+    main {
+      overflow: overlay; 
+    }
   }
 </style>

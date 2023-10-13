@@ -15,35 +15,46 @@
         isActive(routeName: string): Boolean {
           return this.$route.name === routeName;
         },
-        handleToggler(){
+        handleToggler(action = 'show'){
+          const myCollapse = document.getElementById('navbarSupportedContent')
           if (window.innerWidth < 992) {
-            const myCollapse = document.getElementById('navbarSupportedContent')
-            new bootstrap.Collapse(myCollapse || '')
+            switch (action) {
+              case 'show':
+                new bootstrap.Collapse(myCollapse || '', { toggle: true })
+                break;
+              case 'hide':
+                const collapseInstance = new bootstrap.Collapse(myCollapse || '', { toggle: false })
+                collapseInstance.hide()
+                break;
+              default:
+                new bootstrap.Collapse(myCollapse || '')
+            }
           }
-        }
+        },
       },
   });
 </script>
 
 <template>
   <nav class="navbar navbar-expand-lg custom-navbar fixed-top py-3 px-0" v-cloak>
-    <div class="container-xxl d-flex gap-3">
-      <router-link to="/" class="text-decoration-none text-white text-uppercase">
+    <div class="container-xxl d-flex gap-3 px-lg-1">
+      
+      <router-link to="/" class="text-decoration-none text-white text-uppercase" @click="handleToggler('hide')">
         <Logo />
       </router-link>
       
       <button 
         class="navbar-toggler" 
         type="button" 
-        @click="handleToggler" 
+        @click="handleToggler('toggler')" 
         aria-controls="navbarSupportedContent" 
         aria-expanded="false" 
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"><span></span></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" @click="handleToggler">
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" @click="handleToggler('hide')">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3 gap-3">
           <li class="nav-item">
             <router-link 

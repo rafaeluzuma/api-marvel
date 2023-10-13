@@ -47,7 +47,7 @@
 </script>
 
 <template>
-    <div class="container-xxl h-100 px-3 px-lg-2 py-2 py-lg-0">
+    <div class="container-xxl h-100 px-3 px-lg-1 py-2 py-lg-0">
         <div v-if="!loading">
             <Breadcrumb :items="breadcrumbs" />
 
